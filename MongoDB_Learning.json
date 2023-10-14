@@ -880,3 +880,49 @@ Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Age:{$eq:22
     Debit: 300
   }
 ]
+
+[
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  },
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },     
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$nin:["Kavin","Abdullah"]}})
+[
+  {
+    _id: ObjectId("652a566ec2d8ed5a045bbc71"),    
+    Name: 'KavinRaj',
+    Age: 21,
+    Hobbies: [ 'Coding', 'Figma', 'Designing' ],  
+    Address: { Street: 'Karur', Pincode: 638676 },
+    Balance: 300,
+    Credit: 1000,
+    Debit: 100
+  },
+  {
+    _id: ObjectId("652a56b5c2d8ed5a045bbc72"),
+    Name: 'Balaji',
+    Age: 21,
+    Hobbies: [ 'Coding', 'WebDevelopment', 'ErrorSolving' ],
+    Address: { Street: 'Tiruppur', Pincode: 698676 },
+    Balance: 900,
+    Credit: 200,
+    Debit: 900
+  }
+]
