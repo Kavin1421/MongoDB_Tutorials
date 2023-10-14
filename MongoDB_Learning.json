@@ -1,5 +1,4 @@
-PS E:\Kavin_Vijay\Mongo\Learning> mongosh "mongodb+srv://trialmongo.xwtwnga.mongodb.net/" --apiVersion 1 --username Kavin_14
-Enter password: **********
+PS E:\Kavin_Vijay\Mongo\Learning> mongosh
 Current Mongosh Log ID: 652a299ac2d8ed5a045bbc63
 Connecting to:          mongodb+srv://<credentials>@trialmongo.xwtwnga.mongodb.net/?appName=mongosh+1.10.6
 Using MongoDB:          6.0.11 (API Version 1)
