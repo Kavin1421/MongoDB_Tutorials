@@ -1,0 +1,882 @@
+PS E:\Kavin_Vijay\Mongo\Learning> mongosh "mongodb+srv://trialmongo.xwtwnga.mongodb.net/" --apiVersion 1 --username Kavin_14
+Enter password: **********
+Current Mongosh Log ID: 652a299ac2d8ed5a045bbc63
+Connecting to:          mongodb+srv://<credentials>@trialmongo.xwtwnga.mongodb.net/?appName=mongosh+1.10.6
+Using MongoDB:          6.0.11 (API Version 1)
+Using Mongosh:          1.10.6
+mongosh 2.0.1 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+Atlas atlas-s8kups-shard-0 [primary] test> show dbs
+sample_db   72.00 KiB
+admin      336.00 KiB
+local        3.81 GiB
+Atlas atlas-s8kups-shard-0 [primary] test> use 
+use sample_db  use admin      use local
+
+Atlas atlas-s8kups-shard-0 [primary] test> use sample_bd
+switched to db sample_bd
+Atlas atlas-s8kups-shard-0 [primary] sample_bd> db.User.insertOne({Name:"Kavinkumar"});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a2f0cc2d8ed5a045bbc64")
+}
+Atlas atlas-s8kups-shard-0 [primary] sample_bd> db.User.find();
+[ { _id: ObjectId("652a2f0cc2d8ed5a045bbc64"), Name: 'Kavinkumar' } ]
+Atlas atlas-s8kups-shard-0 [primary] sample_bd> db.sample_db.find();
+
+Atlas atlas-s8kups-shard-0 [primary] sample_bd> db.sample_db.findAll();
+TypeError: db.sample_db.findAll is not a function
+Atlas atlas-s8kups-shard-0 [primary] sample_bd> db.sample_db.findall();
+TypeError: db.sample_db.findall is not a function
+Atlas atlas-s8kups-shard-0 [primary] sample_bd> db.sample_db.find();
+
+Atlas atlas-s8kups-shard-0 [primary] sample_bd> cd ..
+Uncaught:
+SyntaxError: Unexpected token (1:4)
+
+> 1 | cd ..
+    |     ^
+  2 |
+
+Atlas atlas-s8kups-shard-0 [primary] sample_bd> use sample_db
+switched to db sample_db
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.sample_db.find();
+[  
+  {
+    _id: ObjectId("652a26773650df985900b57c"),
+    Name: 'Kavin',
+    Age: 22,
+    Destination: 'BackendDeveloper'
+  },
+  {
+    _id: ObjectId("652a27483650df985900b57e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Destination: 'Business Development Executive'
+  },
+  {
+    _id: ObjectId("652a27693650df985900b57f"),
+    Name: 'KavinRaj',
+    Age: 21,
+    Destination: 'Frontend Designer'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.insertOne({Name:"Kavinkumar"});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a2fe1c2d8ed5a045bbc65")
+}
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find();
+[ { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' } ]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.insertOne({Name:"Abdullah"});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a3013c2d8ed5a045bbc66")
+}
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find();
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.insertOne({Name:"Kavin_Vijay",Pass:"******",Address:"DPM"});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a3170c2d8ed5a045bbc67")
+}
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find();
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.insertOne({Name:"Abdullah A S M",Pass:"******",Address:"Erode"});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a318dc2d8ed5a045bbc68")
+}
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find();
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.insertOne({ID:123432,Name:"Kavin",Qualifications:{UG:"Bsc Computer Science",PG:"MCA"},Role:"Software 
+Engineer"});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a3237c2d8ed5a045bbc69")
+}
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find();
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  },
+  {
+    _id: ObjectId("652a3237c2d8ed5a045bbc69"),
+    ID: 123432,
+    Name: 'Kavin',
+    Qualifications: { UG: 'Bsc Computer Science', PG: 'MCA' },
+    Role: 'Software Engineer'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.insertOne({ID:123431,Name:"Abdullah",Qualifications:{UG:"Bsc Computer Technology",PG:"MCA"},Role:"CEO of K-Cart",Skills:["Java","Reactjs","Mongo","Python","Analytics"]});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a3341c2d8ed5a045bbc6a")
+}
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find();
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  },
+  {
+    _id: ObjectId("652a3237c2d8ed5a045bbc69"),
+    ID: 123432,
+    Name: 'Kavin',
+    Qualifications: { UG: 'Bsc Computer Science', PG: 'MCA' },
+    Role: 'Software Engineer'
+  },
+  {
+    _id: ObjectId("652a3341c2d8ed5a045bbc6a"),
+    ID: 123431,
+    Name: 'Abdullah',
+    Qualifications: { UG: 'Bsc Computer Technology', PG: 'MCA' },
+    Role: 'CEO of K-Cart',
+    Skills: [ 'Java', 'Reactjs', 'Mongo', 'Python', 'Analytics' ]
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.inertMany([{Name:"Kavin",Age:22},{Name:"Balu",Age:21},{Name:"KavinRasu",Age:21},{Name:"Abdullah",Age:23,Qualification:["CT","MCA"],Address:{Street:"Erode",Pincode:636589}}]);
+TypeError: db.Users.inertMany is not a function
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.insertMany([{Name:"Kavin",Age:22},{Name:"Balu",Age:21},{Name:"KavinRasu",Age:21},{Name:"Abdullah",Age:23,Qualification:["CT","MCA"],Address:{Street:"Erode",Pincode:636589}}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("652a352bc2d8ed5a045bbc6b"),
+    '1': ObjectId("652a352bc2d8ed5a045bbc6c"),
+    '2': ObjectId("652a352bc2d8ed5a045bbc6d"),
+    '3': ObjectId("652a352bc2d8ed5a045bbc6e")
+  }
+}
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find();
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  },
+  {
+    _id: ObjectId("652a3237c2d8ed5a045bbc69"),
+    ID: 123432,
+    Name: 'Kavin',
+    Qualifications: { UG: 'Bsc Computer Science', PG: 'MCA' },
+    Role: 'Software Engineer'
+  },
+  {
+    _id: ObjectId("652a3341c2d8ed5a045bbc6a"),
+    ID: 123431,
+    Name: 'Abdullah',
+    Qualifications: { UG: 'Bsc Computer Technology', PG: 'MCA' },
+    Role: 'CEO of K-Cart',
+    Skills: [ 'Java', 'Reactjs', 'Mongo', 'Python', 'Analytics' ]
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6c"), Name: 'Balu', Age: 21 },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6d"),
+    Name: 'KavinRasu',
+    Age: 21
+  },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Qualification: [ 'CT', 'MCA' ],
+    Address: { Street: 'Erode', Pincode: 636589 }
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().limit(2);
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({name:1})
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  },
+  {
+    _id: ObjectId("652a3237c2d8ed5a045bbc69"),
+    ID: 123432,
+    Name: 'Kavin',
+    Qualifications: { UG: 'Bsc Computer Science', PG: 'MCA' },
+    Role: 'Software Engineer'
+  },
+  {
+    _id: ObjectId("652a3341c2d8ed5a045bbc6a"),
+    ID: 123431,
+    Name: 'Abdullah',
+    Qualifications: { UG: 'Bsc Computer Technology', PG: 'MCA' },
+    Role: 'CEO of K-Cart',
+    Skills: [ 'Java', 'Reactjs', 'Mongo', 'Python', 'Analytics' ]
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6c"), Name: 'Balu', Age: 21 },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6d"),
+    Name: 'KavinRasu',
+    Age: 21
+  },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Qualification: [ 'CT', 'MCA' ],
+    Address: { Street: 'Erode', Pincode: 636589 }
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Name:1})
+[
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3341c2d8ed5a045bbc6a"),
+    ID: 123431,
+    Name: 'Abdullah',
+    Qualifications: { UG: 'Bsc Computer Technology', PG: 'MCA' },
+    Role: 'CEO of K-Cart',
+    Skills: [ 'Java', 'Reactjs', 'Mongo', 'Python', 'Analytics' ]
+  },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Qualification: [ 'CT', 'MCA' ],
+    Address: { Street: 'Erode', Pincode: 636589 }
+  },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6c"), Name: 'Balu', Age: 21 },
+  {
+    _id: ObjectId("652a3237c2d8ed5a045bbc69"),
+    ID: 123432,
+    Name: 'Kavin',
+    Qualifications: { UG: 'Bsc Computer Science', PG: 'MCA' },
+    Role: 'Software Engineer'
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6d"),
+    Name: 'KavinRasu',
+    Age: 21
+  },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Name:1}).limit(4)
+[  
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Qualification: [ 'CT', 'MCA' ],
+    Address: { Street: 'Erode', Pincode: 636589 }
+  },
+  {
+    _id: ObjectId("652a3341c2d8ed5a045bbc6a"),
+    ID: 123431,
+    Name: 'Abdullah',
+    Qualifications: { UG: 'Bsc Computer Technology', PG: 'MCA' },
+    Role: 'CEO of K-Cart',
+    Skills: [ 'Java', 'Reactjs', 'Mongo', 'Python', 'Analytics' ]
+  },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Name:-1}).limit(4)
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6d"),
+    Name: 'KavinRasu',
+    Age: 21
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Name:-1,Age:1}).limit(4)
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6d"),
+    Name: 'KavinRasu',
+    Age: 21
+  },
+  {
+    _id: ObjectId("652a3237c2d8ed5a045bbc69"),
+    ID: 123432,
+    Name: 'Kavin',
+    Qualifications: { UG: 'Bsc Computer Science', PG: 'MCA' },
+    Role: 'Software Engineer'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Name:-1,Age:-1}).limit(4)
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6d"),
+    Name: 'KavinRasu',
+    Age: 21
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Name:1,Age:-1}).limit(4)
+[  
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Qualification: [ 'CT', 'MCA' ],
+    Address: { Street: 'Erode', Pincode: 636589 }
+  },
+  {
+    _id: ObjectId("652a3341c2d8ed5a045bbc6a"),
+    ID: 123431,
+    Name: 'Abdullah',
+    Qualifications: { UG: 'Bsc Computer Technology', PG: 'MCA' },
+    Role: 'CEO of K-Cart',
+    Skills: [ 'Java', 'Reactjs', 'Mongo', 'Python', 'Analytics' ]
+  },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Name:1,Age:-1}).limit(6)
+[  
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Qualification: [ 'CT', 'MCA' ],
+    Address: { Street: 'Erode', Pincode: 636589 }
+  },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3341c2d8ed5a045bbc6a"),
+    ID: 123431,
+    Name: 'Abdullah',
+    Qualifications: { UG: 'Bsc Computer Technology', PG: 'MCA' },
+    Role: 'CEO of K-Cart',
+    Skills: [ 'Java', 'Reactjs', 'Mongo', 'Python', 'Analytics' ]
+  },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6c"), Name: 'Balu', Age: 21 },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Name:-1,Age:-1}).limit(6)
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6d"),
+    Name: 'KavinRasu',
+    Age: 21
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 },
+  {
+    _id: ObjectId("652a3237c2d8ed5a045bbc69"),
+    ID: 123432,
+    Name: 'Kavin',
+    Qualifications: { UG: 'Bsc Computer Science', PG: 'MCA' },
+    Role: 'Software Engineer'
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6c"), Name: 'Balu', Age: 21 }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().sort({Age:-1,Name:-1}).limit(6)
+[  
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Qualification: [ 'CT', 'MCA' ],
+    Address: { Street: 'Erode', Pincode: 636589 }
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6d"),
+    Name: 'KavinRasu',
+    Age: 21
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6c"), Name: 'Balu', Age: 21 },
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().limit(2)
+[
+  { _id: ObjectId("652a2fe1c2d8ed5a045bbc65"), Name: 'Kavinkumar' },
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().skip(1).limit(2)
+[
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find().skip(2).limit(2)
+[
+  {
+    _id: ObjectId("652a3170c2d8ed5a045bbc67"),
+    Name: 'Kavin_Vijay',
+    Pass: '******',
+    Address: 'DPM'
+  },
+  {
+    _id: ObjectId("652a318dc2d8ed5a045bbc68"),
+    Name: 'Abdullah A S M',
+    Pass: '******',
+    Address: 'Erode'
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find(Name:"Abdullah")
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:18)
+
+> 1 | db.Users.find(Name:"Abdullah")
+    |                   ^
+  2 |
+
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find({Name:"Abdullah"})
+[
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  {
+    _id: ObjectId("652a3341c2d8ed5a045bbc6a"),
+    ID: 123431,
+    Name: 'Abdullah',
+    Qualifications: { UG: 'Bsc Computer Technology', PG: 'MCA' }, 
+    Role: 'CEO of K-Cart',
+    Skills: [ 'Java', 'Reactjs', 'Mongo', 'Python', 'Analytics' ] 
+  },
+  {
+    _id: ObjectId("652a352bc2d8ed5a045bbc6e"),
+    Name: 'Abdullah',
+    Age: 23,
+    Qualification: [ 'CT', 'MCA' ],
+    Address: { Street: 'Erode', Pincode: 636589 }
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find({Name:"Kavin"})
+[  
+  {
+    _id: ObjectId("652a3237c2d8ed5a045bbc69"),
+    ID: 123432,
+    Name: 'Kavin',
+    Qualifications: { UG: 'Bsc Computer Science', PG: 'MCA' },
+    Role: 'Software Engineer'
+  },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6b"), Name: 'Kavin', Age: 22 }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find({Name:"Abdullah"},{Name:1})
+[
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  { _id: ObjectId("652a3341c2d8ed5a045bbc6a"), Name: 'Abdullah' },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6e"), Name: 'Abdullah' }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find({Name:"Abdullah"},{Name:1})
+[
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  { _id: ObjectId("652a3341c2d8ed5a045bbc6a"), Name: 'Abdullah' },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6e"), Name: 'Abdullah' }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find({Name:"Abdullah"},{Name:1})
+[
+  { _id: ObjectId("652a3013c2d8ed5a045bbc66"), Name: 'Abdullah' },
+  { _id: ObjectId("652a3341c2d8ed5a045bbc6a"), Name: 'Abdullah' },
+  { _id: ObjectId("652a352bc2d8ed5a045bbc6e"), Name: 'Abdullah' }
+]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> db.Users.find({Name:"Abdullah"},{Name:1,_id:0})
+[ { Name: 'Abdullah' }, { Name: 'Abdullah' }, { Name: 'Abdullah' } ]
+Atlas atlas-s8kups-shard-0 [primary] sample_db> use Complex_db
+switched to db Complex_db
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.insertOne({Name:"Kavin",Age:22,Hobbies:["Coding,WebDeveloping"],Address:{Street:"Dharapuram",Pincode:638657},Balance:1000,Credit:500,Debit:300});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a55d5c2d8ed5a045bbc6f")
+}
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find();
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.insertOne({Name:"Abdullah",Age:23,Hobbies:["Coding","StageSpeaking"],Address:{Street:"Erode",Pincode:638656},Balance:3000,Credit:100,Debit:500});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a5630c2d8ed5a045bbc70")
+}
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find();
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  },
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.insertOne({Name:"KavinRaj",Age:21,Hobbies:["Coding","Figma","Designing"],Address:{Street:"Karur",Pincode:638676},Balance:300,Credit:1000,Debit:100});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a566ec2d8ed5a045bbc71")
+}
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.insertOne({Name:"Balaji",Age:21,Hobbies:["Coding","WebDevelopment","ErrorSolving"],Address:{Street:"Tiruppur",Pincode:698676},Balance:900,Credit:200,Debit:900});
+{
+  acknowledged: true,
+  insertedId: ObjectId("652a56b5c2d8ed5a045bbc72")
+}
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find();
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  },
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  },
+  {
+    _id: ObjectId("652a566ec2d8ed5a045bbc71"),
+    Name: 'KavinRaj',
+    Age: 21,
+    Hobbies: [ 'Coding', 'Figma', 'Designing' ],
+    Address: { Street: 'Karur', Pincode: 638676 },
+    Balance: 300,
+    Credit: 1000,
+    Debit: 100
+  },
+  {
+    _id: ObjectId("652a56b5c2d8ed5a045bbc72"),
+    Name: 'Balaji',
+    Age: 21,
+    Hobbies: [ 'Coding', 'WebDevelopment', 'ErrorSolving' ],
+    Address: { Street: 'Tiruppur', Pincode: 698676 },
+    Balance: 900,
+    Credit: 200,
+    Debit: 900
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.complex_db.find({Name:"Kavin"})
+
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.complex_db.find({Name:"Abdullah"})
+
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:"Abdullah"},{Name:1,_id:0})
+[ { Name: 'Abdullah' } ]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:"Abdullah"})
+[  
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.complex_db.find({Name:"Abdullah"})
+
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:"Abdullah"})
+[  
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:"Abdullah"})
+[  
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:"Kavin"})
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$eq:"Kavin"}})
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$nq:"Kavin"}})
+MongoServerError: unknown operator: $nq
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{nq:"Kavin"}})
+
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$eq:"Kavin"}})
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$ne:"Kavin"}})
+[  
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  },
+  {
+    _id: ObjectId("652a566ec2d8ed5a045bbc71"),
+    Name: 'KavinRaj',
+    Age: 21,
+    Hobbies: [ 'Coding', 'Figma', 'Designing' ],
+    Address: { Street: 'Karur', Pincode: 638676 },
+    Balance: 300,
+    Credit: 1000,
+    Debit: 100
+  },
+  {
+    _id: ObjectId("652a56b5c2d8ed5a045bbc72"),
+    Name: 'Balaji',
+    Age: 21,
+    Hobbies: [ 'Coding', 'WebDevelopment', 'ErrorSolving' ],
+    Address: { Street: 'Tiruppur', Pincode: 698676 },
+    Balance: 900,
+    Credit: 200,
+    Debit: 900
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Age:{$gt:22}})
+[  
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Age:{$lt:22}})
+[  
+  {
+    _id: ObjectId("652a566ec2d8ed5a045bbc71"),
+    Name: 'KavinRaj',
+    Age: 21,
+    Hobbies: [ 'Coding', 'Figma', 'Designing' ],
+    Address: { Street: 'Karur', Pincode: 638676 },
+    Balance: 300,
+    Credit: 1000,
+    Debit: 100
+  },
+  {
+    _id: ObjectId("652a56b5c2d8ed5a045bbc72"),
+    Name: 'Balaji',
+    Age: 21,
+    Hobbies: [ 'Coding', 'WebDevelopment', 'ErrorSolving' ],
+    Address: { Street: 'Tiruppur', Pincode: 698676 },
+    Balance: 900,
+    Credit: 200,
+    Debit: 900
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Age:{$eq:22}})
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  }
+]
