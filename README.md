@@ -1,4 +1,4 @@
-# MongoDB_Tutorials
+![SampleScreen](https://github.com/Kavin1421/MongoDB_Tutorials/assets/109059452/ea55d0cf-a6ed-46d7-9e5e-7e3f4c91f2e7)# MongoDB_Tutorials
 Learning MongoDb for Creating the Web Applications
 #### 1.Deploy MongoDB
 Create a cluster in the MongoDB Atlas UI or the Atlas CLI quickly and easily. To learn more, see 
@@ -29,3 +29,9 @@ Create, View, Update, and Delete Documents
 Design your data schema to support frequent access patterns. You can update or enforce your schema at any point.
 
 To learn more, see Data Modeling Introduction in the MongoDB manual.
+
+## Here the Sample Pic
+![SampleScreen](https://github.com/Kavin1421/MongoDB_Tutorials/assets/109059452/a403d6ab-1fbb-4f7d-89a2-460f8d93df7f)
+
+
+<img src="https://github.com/Kavin1421/MongoDB_Tutorials/SampleScreen.png" alt="Alt text" title="Optional title">
