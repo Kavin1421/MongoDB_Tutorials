@@ -926,3 +926,121 @@ Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$nin:
     Debit: 900
   }
 ]
+
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.updateOne({Hobbies:["Coding','StageSpeaking"]},{$set:{Hobbies:["Coding"], ["StageSpeaking"]}}) 
+Uncaught:
+SyntaxError: Unexpected token (1:105)
+
+> 1 | db.Complex_db.updateOne({Hobbies:["Coding','StageSpeaking"]},{$set:{Hobbies:["Coding"], ["StageSpeaking"]}})
+    |                                                                                                          ^
+  2 |
+
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.updateOne({Hobbies:["Coding','StageSpeaking"]},{$set:{Hobbies:["Coding"], ["StageSpeaking"]}}) 
+Uncaught:
+SyntaxError: Unexpected token (1:105)
+
+> 1 | db.Complex_db.updateOne({Hobbies:["Coding','StageSpeaking"]},{$set:{Hobbies:["Coding"], ["StageSpeaking"]}})
+    |                                                                                                          ^
+  2 |
+
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.updateOne({Hobbies:["Coding','StageSpeaking"]},{$set:{Hobbies:["Coding"], ["StageSpeaking"]}});
+Uncaught:
+SyntaxError: Unexpected token (1:105)
+
+> 1 | db.Complex_db.updateOne({Hobbies:["Coding','StageSpeaking"]},{$set:{Hobbies:["Coding"], ["StageSpeaking"]}});
+    |                                                                                                          ^
+  2 |
+
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.updateOne({Hobbies:["Coding','StageSpeaking"]},{$set:{Hobbies:["Coding","StageSpeaking"]}});   
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$in:["Kavin","Abdullah"]}})
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  },
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.updateOne({Hobbies:["Coding,WebDevelopment"]},{$set:{Hobbies:["Coding","WebDevelopment"]}});   
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$in:["Kavin","Abdullah"]}})
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding,WebDeveloping' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  },
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.updateOne({Hobbies:["Coding,WebDeveloping"]},{$set:{Hobbies:["Coding","WebDevelopment"]}});    
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-s8kups-shard-0 [primary] Complex_db> db.Complex_db.find({Name:{$in:["Kavin","Abdullah"]}})
+[  
+  {
+    _id: ObjectId("652a55d5c2d8ed5a045bbc6f"),
+    Name: 'Kavin',
+    Age: 22,
+    Hobbies: [ 'Coding', 'WebDevelopment' ],
+    Address: { Street: 'Dharapuram', Pincode: 638657 },
+    Balance: 1000,
+    Credit: 500,
+    Debit: 300
+  },
+  {
+    _id: ObjectId("652a5630c2d8ed5a045bbc70"),
+    Name: 'Abdullah',
+    Age: 23,
+    Hobbies: [ 'Coding', 'StageSpeaking' ],
+    Address: { Street: 'Erode', Pincode: 638656 },
+    Balance: 3000,
+    Credit: 100,
+    Debit: 500
+  }
+]
